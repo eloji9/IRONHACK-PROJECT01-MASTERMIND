@@ -81,13 +81,13 @@ body {
     padding: 0 5%;
 }
 
-.guess-pug{
-    width: 23%;
-    height: 100%;
+.guess-peg{
+    background: linear-gradient(grey,#DAF3D8);
     border: 1px solid white;
     border-radius : 50%;
+    height: 100%;
     margin-left:1%;
-    background: linear-gradient(grey,#DAF3D8);
+    width: 23%;
 }
 
 .grade-pegs{
@@ -98,7 +98,7 @@ body {
     margin-left: 2%;
 }
 
-.grade-pug{
+.grade-peg{
     box-sizing: border-box;
     width: 37%;
     height: 50%;
