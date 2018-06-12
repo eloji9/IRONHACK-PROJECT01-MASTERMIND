@@ -1,5 +1,6 @@
 $(document).ready(function(){
 
+    // General variables
     var guess = 0;
     var selectedColor = "";
     var bGround = "rgba(0, 0, 0, 0) linear-gradient(grey, rgb(218, 243, 216)) repeat scroll 0% 0% / auto padding-box border-box";
@@ -33,8 +34,8 @@ $(document).ready(function(){
 
     $(".submit-btn").click(function(){
         $(".active").removeClass("active");
-        console.log(masterGuessArray[guess]);
-        console.log(answerRay);
+        var gradRay = getGrade();
+        console.log(gradRay);
         guess++;
         for(var i = 0; i < 4; i++){
             $(`#g-${guess}-${i}`).addClass("active");
@@ -88,15 +89,46 @@ $(document).ready(function(){
         var x = ray[1];
         var y = ray[2];
         masterGuessArray[x][y] = makeColorANumber(col);
-        console.log(masterGuessArray);
       }
 
     function makeColorANumber(col){
         if(col === 'rgb(255, 0, 0)') return 0;
         if(col === 'rgb(255, 255, 0)') return 1;
         if(col === 'rgb(0, 0, 255)') return 2;
-        if(col === 'rgb(0, 255, 0)') return 3;
+        if(col === 'rgb(0, 128, 0)') return 3;
         if(col === 'rgb(0, 0, 0)') return 4;
         if(col === 'rgb(255, 255, 255)') return 5;
     }
+
+    function getGrade(){
+        var gradRay = [];
+        var aRay = [];
+        for (var i = 0; i < 4; i++){
+            aRay.push(answerRay[i]);
+        }
+
+        // Give hints : black pegs
+        for(var i = 0; i < 4; i++){
+            if(masterGuessArray[guess][i] === aRay[i]){
+                gradRay.push(1);
+                aRay[j]= -1;
+                masterGuessArray[guess][i] = -2;
+            }
+        }
+
+        // Give hints : white pegs
+        for(var i = 0; i < 4; i++){
+            for(var j = 0; j < 4; j++){
+                if(masterGuessArray[guess][i] === aRay[j]){
+                    gradRay.push(2);
+                    aRay[i] = -1;
+                    masterGuessArray[guess][i] = -2;
+                }
+            }
+        }
+
+
+        return gradRay;
+    }
+
 });
