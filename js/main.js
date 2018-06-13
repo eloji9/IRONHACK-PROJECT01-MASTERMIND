@@ -11,6 +11,8 @@ $(document).ready(function(){
     var tempRay = $(".guess-pegs");
     var guessBoxArray = [];
     var nextGrade = $($(".first-grade")[0]).parent()[0];
+
+
     for(var i = 9; i >= 0; i--){
         guessBoxArray.push(tempRay[i]);
     }
@@ -37,6 +39,7 @@ $(document).ready(function(){
         $(".active").removeClass("active");
         var gradRay = getGrade();
         checkWin(gradRay);
+        // checkLose(gradRay);
         var gradeBox = getGradeBox();
         placePegs(gradRay, gradeBox);
         guess++;
@@ -148,11 +151,19 @@ $(document).ready(function(){
     };
 
     function checkWin(ray){
-        // console.log(ray);
         var rayStr = ray.join();
-        // console.log(rayStr);
+        // if (($("div").hasClass("last-grade")) && (!(rayStr === "black-peg,black-peg,black-peg,black-peg"))){
+        //     $(".lose").fadeIn(200);
+        //     $("button").click(function(){
+        //         document.location.reload();
+        //         });
+        //     } else if (rayStr === "black-peg,black-peg,black-peg,black-peg"){
         if (rayStr === "black-peg,black-peg,black-peg,black-peg"){
             $(".win").fadeIn(200);
+            $(".answer-pegs").fadeIn(200);
+            $("button").click(function(){
+                document.location.reload();
+            });
         }
-    }
+    };
 });
