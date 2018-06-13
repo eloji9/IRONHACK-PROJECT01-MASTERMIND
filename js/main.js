@@ -10,6 +10,7 @@ $(document).ready(function(){
     var answerRay = makeAnswer();
     var tempRay = $(".guess-pegs");
     var guessBoxArray = [];
+    var nextGrade = $($(".first-grade")[0]).parent()[0];
     for(var i = 9; i >= 0; i--){
         guessBoxArray.push(tempRay[i]);
     }
@@ -35,7 +36,9 @@ $(document).ready(function(){
     $(".submit-btn").click(function(){
         $(".active").removeClass("active");
         var gradRay = getGrade();
-        console.log(gradRay);
+        checkWin(gradRay);
+        var gradeBox = getGradeBox();
+        placePegs(gradRay, gradeBox);
         guess++;
         for(var i = 0; i < 4; i++){
             $(`#g-${guess}-${i}`).addClass("active");
@@ -110,7 +113,7 @@ $(document).ready(function(){
         // Give hints : black pegs
         for(var i = 0; i < 4; i++){
             if(masterGuessArray[guess][i] === aRay[i]){
-                gradRay.push(1);
+                gradRay.push("black-peg");
                 aRay[j]= -1;
                 masterGuessArray[guess][i] = -2;
             }
@@ -120,15 +123,36 @@ $(document).ready(function(){
         for(var i = 0; i < 4; i++){
             for(var j = 0; j < 4; j++){
                 if(masterGuessArray[guess][i] === aRay[j]){
-                    gradRay.push(2);
+                    gradRay.push("white-peg");
                     aRay[i] = -1;
                     masterGuessArray[guess][i] = -2;
                 }
             }
         }
-
-
         return gradRay;
     }
 
+    function getGradeBox(){
+        var activeGrade = nextGrade.getElementsByClassName("grade-pegs")[0];
+        nextGrade = $(nextGrade).prev()[0];
+        return activeGrade;
+    }
+
+    function placePegs(ray, box){
+        var pegRay = box.getElementsByClassName("grade-peg");
+        for (var i = 0; i < ray.length; i++){
+            $(pegRay[i]).addClass(`${ray[i]}`);
+        }
+        $('.white-peg').css('background', 'none').css('background-color', 'white');
+        $('.black-peg').css('background', 'none').css('background-color', 'black');
+    };
+
+    function checkWin(ray){
+        // console.log(ray);
+        var rayStr = ray.join();
+        // console.log(rayStr);
+        if (rayStr === "black-peg,black-peg,black-peg,black-peg"){
+            $(".win").fadeIn(200);
+        }
+    }
 });
