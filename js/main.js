@@ -1,9 +1,5 @@
 $(document).ready(function(){
 
-    // $(".start-game").click(function(){
-    //     $(".start").fadeOut(1200);
-    // })
-
     // General variables
     var guess = 0;
     var selectedColor = "";
@@ -14,6 +10,7 @@ $(document).ready(function(){
     var answerRay = makeAnswer();
     console.log(answerRay);
     var tempRay = $(".guess-pegs");
+    // var answerRay = $(".answer-pegs");
     var guessBoxArray = [];
     var nextGrade = $($(".first-grade")[0]).parent()[0];
 
@@ -44,7 +41,6 @@ $(document).ready(function(){
         $(".active").removeClass("active");
         var gradRay = getGrade();
         checkWin(gradRay);
-        // checkLose(gradRay);
         var gradeBox = getGradeBox();
         placePegs(gradRay, gradeBox);
         guess++;
@@ -52,7 +48,6 @@ $(document).ready(function(){
             $(`#g-${guess}-${i}`).addClass("active");
         }
         $(".submit-btn").hide();
-
         if (guess >= 10){
             $(".lose").fadeIn(200);
             $("button").click(function(){
@@ -88,7 +83,6 @@ $(document).ready(function(){
                 } else {
                     $(this).css("background",bGround);
                     $(this).css("border","1px solid white");
-                    // updateMasterArray(selectedColor, coord);
                     clickCount--;
                 }
             }
@@ -125,8 +119,6 @@ $(document).ready(function(){
         for (var i = 0; i < 4; i++){
             aRay.push(answerRay[i]);
         }
-
-
 
         // Give hints : black pegs
         for(var i = 0; i < 4; i++){
@@ -167,18 +159,11 @@ $(document).ready(function(){
 
     function checkWin(ray){
         var rayStr = ray.join();
-        // if (($("div").hasClass("last-grade")) && (!(rayStr === "black-peg,black-peg,black-peg,black-peg"))){
-            // $(".lose").fadeIn(200);
-            // $("button").click(function(){
-            //     document.location.reload();
-        //         });
-        //     } else if (rayStr === "black-peg,black-peg,black-peg,black-peg"){
         if (rayStr === "black-peg,black-peg,black-peg,black-peg"){
             $(".win").fadeIn(200);
             $(".answer-pegs").fadeIn(200);
             $("button").click(function(){
                 document.location.reload();
-                // $(".start").hide();
             });
         }
     };

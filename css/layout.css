@@ -1,7 +1,7 @@
 body {
     margin: 0;
     padding: 0;
-    background-image: url("http://www.bigtoysarcade.com/Images/inside.JPG");
+    background-image: url("./images/inside.JPG");
     background-repeat: no-repeat;
     background-size: cover;
     font-family: 'Indie Flower', cursive;
@@ -95,6 +95,7 @@ a{
 .lose-message{
     width: 85%;
     margin: 10% auto;
+    color: white;
 }
 
 .board{
