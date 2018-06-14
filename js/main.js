@@ -1,5 +1,9 @@
 $(document).ready(function(){
 
+    $(".start-game").click(function(){
+        $(".start").fadeOut(1200);
+    })
+
     // General variables
     var guess = 0;
     var selectedColor = "";

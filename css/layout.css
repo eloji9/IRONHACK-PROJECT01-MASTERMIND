@@ -9,6 +9,34 @@ body {
     display: flex;
 }
 
+.start{
+    position: absolute;
+    top : 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(white,orange);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.start-game{
+    height: 50px;
+    width: 100px;
+    color: white;
+    background-color: red;
+}
+
+.start-message{
+    height: auto;
+    width: 80%;
+    color: white;
+    background: linear-gradient(green,black);
+}
+
 .win{
     position: absolute;
     top : 0;
