@@ -1,8 +1,8 @@
 $(document).ready(function(){
 
-    $(".start-game").click(function(){
-        $(".start").fadeOut(1200);
-    })
+    // $(".start-game").click(function(){
+    //     $(".start").fadeOut(1200);
+    // })
 
     // General variables
     var guess = 0;
@@ -12,6 +12,7 @@ $(document).ready(function(){
     var clickCount = 0;
     var isSelected = false;
     var answerRay = makeAnswer();
+    console.log(answerRay);
     var tempRay = $(".guess-pegs");
     var guessBoxArray = [];
     var nextGrade = $($(".first-grade")[0]).parent()[0];
@@ -53,11 +54,12 @@ $(document).ready(function(){
         $(".submit-btn").hide();
     });
 
-    $(".selector-inner").click(function(){
+    $(".inner-selector").click(function(){
         isSelected = true;
-        $(".selector-outer").css("background-color","brown");
+        $(".outer-selector").css("background","linear-gradient(#C95E56,#C0439A,#C95E56)");
         var peg = ($(this).parent())[0];
         selectedColor = $(this).css("background-color");
+        $(peg).css("background","none");
         $(peg).css("background-color",selectedColor);
     });
 
@@ -117,6 +119,8 @@ $(document).ready(function(){
             aRay.push(answerRay[i]);
         }
 
+
+
         // Give hints : black pegs
         for(var i = 0; i < 4; i++){
             if(masterGuessArray[guess][i] === aRay[i]){
@@ -167,6 +171,7 @@ $(document).ready(function(){
             $(".answer-pegs").fadeIn(200);
             $("button").click(function(){
                 document.location.reload();
+                // $(".start").hide();
             });
         }
     };

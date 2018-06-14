@@ -6,38 +6,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="./css/layout.css">
-    <title>MASTERMIND</title>
+    <title>MASTERMIND - GAME</title>
 </head>
-<div class="start">
-    <div class="start-message">
-        <h2>Start the game !</h2>
-        <h2>Will you win ? Or lose ? !</h2>
-    </div>
-    <button class="start-game">
-        START
-    </button>
-</div>
-<div class="win">
-    <button class="reload-win">
-        RESTART
-    </button>
-    <div class="win-message">
-        <h2>YOU HAVE BITTEN THE MACHINE !!</h2>
-        <h2>YOU WIN !</h2>
-        <img src="https://media.giphy.com/media/xNBcChLQt7s9a/giphy.gif" alt="gif win">
-    </div>
-</div>
-<div class="lose">
-    <button class="reload-lose">
-        RESTART
-    </button>
-    <div class="lose-message">
-        <h2>THE MACHINE IS BETTER !!</h2>
-        <h2>YOU LOST !</h2>
-        <img src="https://media.giphy.com/media/3o7TKr3nzbh5WgCFxe/giphy.gif" alt="gif lose" height="30%" width="30%">
-    </div>
-</div>
 <body>
+    <div class="win">
+        <button class="reload-win">
+            RESTART
+        </button>
+        <div class="win-message">
+            <h2>YOU HAVE BITTEN THE MACHINE !!</h2>
+            <h2>YOU WIN !</h2>
+            <img src="https://media.giphy.com/media/xNBcChLQt7s9a/giphy.gif" alt="gif win">
+        </div>
+    </div>
+    <div class="lose">
+        <button class="reload-lose">
+            RESTART
+        </button>
+        <div class="lose-message">
+            <h2>THE MACHINE IS BETTER !!</h2>
+            <h2>YOU LOST !</h2>
+            <img src="https://media.giphy.com/media/3o7TKr3nzbh5WgCFxe/giphy.gif" alt="gif lose" height="30%" width="30%">
+        </div>
+    </div>
     <div class="board">
         <div class = "answer-container flexer">
             <div class = "answer-box">
@@ -286,28 +277,28 @@
         </div>
 
         <div class = "selection-container flexer">
-            <div class="selector-outer">
-                <div class="selector-inner red">
+            <div class="outer-selector">
+                <div class="inner-selector red">
                 </div>
             </div>
-            <div class="selector-outer">
-                <div class="selector-inner yellow">
+            <div class="outer-selector">
+                <div class="inner-selector yellow">
                 </div>
             </div>
-            <div class="selector-outer">
-                <div class="selector-inner blue">
+            <div class="outer-selector">
+                <div class="inner-selector blue">
                 </div>
             </div>
-            <div class="selector-outer">
-                <div class="selector-inner green">
+            <div class="outer-selector">
+                <div class="inner-selector green">
                 </div>
             </div>
-            <div class="selector-outer">
-                <div class="selector-inner black">
+            <div class="outer-selector">
+                <div class="inner-selector black">
                 </div>
             </div>
-            <div class="selector-outer">
-                <div class="selector-inner white">
+            <div class="outer-selector">
+                <div class="inner-selector white">
                 </div>
             </div>
         </div>
