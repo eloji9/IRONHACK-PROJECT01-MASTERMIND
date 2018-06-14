@@ -52,6 +52,13 @@ $(document).ready(function(){
             $(`#g-${guess}-${i}`).addClass("active");
         }
         $(".submit-btn").hide();
+
+        if (guess >= 10){
+            $(".lose").fadeIn(200);
+            $("button").click(function(){
+                document.location.reload();
+        })
+    }
     });
 
     $(".inner-selector").click(function(){
@@ -161,9 +168,9 @@ $(document).ready(function(){
     function checkWin(ray){
         var rayStr = ray.join();
         // if (($("div").hasClass("last-grade")) && (!(rayStr === "black-peg,black-peg,black-peg,black-peg"))){
-        //     $(".lose").fadeIn(200);
-        //     $("button").click(function(){
-        //         document.location.reload();
+            // $(".lose").fadeIn(200);
+            // $("button").click(function(){
+            //     document.location.reload();
         //         });
         //     } else if (rayStr === "black-peg,black-peg,black-peg,black-peg"){
         if (rayStr === "black-peg,black-peg,black-peg,black-peg"){
