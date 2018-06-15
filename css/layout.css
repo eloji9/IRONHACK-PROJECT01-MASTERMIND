@@ -60,21 +60,28 @@ a{
     top : 0;
     left: 0;
     width: 100%;
-    height: 100vh;
+    height: 100%;
     background-color: rgba(255,255,255,0.5);
     text-align: center;
-    display: none;
-}
-
-.reload-win{
-    position: absolute;
-    margin: 45% -5%;
+    /* display: none; */
 }
 
 .win-message{
+    display: flex;
+    flex-direction: column;
+    align-content: space-around;
+    justify-content: space-around;
+}
+
+.reload-win{
+    /* position: absolute;
+    margin: 30% -17%; */
+}
+
+/* .win-message{
     width: 85%;
     margin: 15% auto;
-}
+} */
 
 .lose{
     position: absolute;

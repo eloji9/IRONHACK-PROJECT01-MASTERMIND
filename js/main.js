@@ -13,8 +13,6 @@ $(document).ready(function(){
     // var answerRay = $(".answer-pegs");
     var guessBoxArray = [];
     var nextGrade = $($(".first-grade")[0]).parent()[0];
-
-
     for(var i = 9; i >= 0; i--){
         guessBoxArray.push(tempRay[i]);
     }
@@ -25,6 +23,8 @@ $(document).ready(function(){
             $(guessArray[j]).attr("id",`g-${i}-${j}`)
         }
     }
+
+    // var answerArray = [-1,-1,-1,-1];
 
     var masterGuessArray = [[-1,-1,-1,-1],
                             [-1,-1,-1,-1],
@@ -50,6 +50,7 @@ $(document).ready(function(){
         $(".submit-btn").hide();
         if (guess >= 10){
             $(".lose").fadeIn(200);
+            // $(peg).css("background","none");
             $("button").click(function(){
                 document.location.reload();
         })
@@ -96,6 +97,22 @@ $(document).ready(function(){
         }
         return ray;
     }
+
+    function updatedAnswerArray(col,x){
+        answerArray[x] = makeNumberAColor(col);
+    }
+
+    // function makeNumberAColor(col){
+    //     var aPeg = ($(".answer-peg").parent())[0];
+    //     $(peg).css("background","none");
+    //     $(peg).css("background-color",col);
+    //     if (0) return (col === 'rgb(255, 0, 0)');
+    //     if (1) return (col === 'rgb(255, 255, 0)');
+    //     if (2) return (col === 'rgb(0, 0, 255)');
+    //     if (3) return (col === 'rgb(0, 128, 0)');
+    //     if (4) return (col === 'rgb(0, 0, 0)');
+    //     if (5) return (col === 'rgb(255, 255, 255)');
+    // };
 
     function updateMasterArray(col, xy) {
         var ray = xy.split('-');
