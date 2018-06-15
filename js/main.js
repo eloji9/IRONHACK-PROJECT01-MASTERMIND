@@ -96,6 +96,28 @@ $(document).ready(function(){
         return ray;
     }
 
+    // function colorizeAnswerPegs(col){
+    //     switch(col) {
+    //         case "red":
+    //             $("answer-pegs").css("background-color","rgb(255, 0, 0)")
+    //             break;
+    //         case "yellow":
+    //             $("answer-pegs").css("background-color","rgb(255, 255, 0)")
+    //             break;
+    //         case "blue":
+    //             $("answer-pegs").css("background-color","rgb(0, 0, 255)")
+    //             break;
+    //         case "green":
+    //             $("answer-pegs").css("background-color","rgb(0, 128, 0)")
+    //             break;
+    //         case "black":
+    //             $("answer-pegs").css("background-color","rgb(0, 0, 0)")
+    //             break;
+    //         case "white":
+    //             $("answer-pegs").css("background-color","rgb(255, 255, 255)")
+    //             break;
+    //     }
+    // }
     // function updatedAnswerArray(i, col){
     //     for (var i = 0; i < 4; i++){}
     //         answerArray[i] = function makeNumberAColor(col){
