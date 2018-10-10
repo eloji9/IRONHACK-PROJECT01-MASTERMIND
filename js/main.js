@@ -3,6 +3,7 @@ $(document).ready(function(){
     // General variables
     var guess = 0;
     var selectedColor = "";
+    $(".answer-peg").toggle();
     var bGround = "rgba(0, 0, 0, 0) linear-gradient(grey, rgb(218, 243, 216)) repeat scroll 0% 0% / auto padding-box border-box";
     $(".submit-btn").hide();
     var clickCount = 0;
@@ -48,8 +49,8 @@ $(document).ready(function(){
         }
         $(".submit-btn").hide();
         if (guess >= 10){
-            // $(".lose").fadeIn(200);
-            $(".answer-pegs").fadeIn(200);
+            $(".lose").fadeIn(200);
+            $(".answer-peg").toggle()
             $("button").click(function(){
                 document.location.reload();
         })
@@ -97,52 +98,6 @@ $(document).ready(function(){
         return ray;
     };
 
-    // function colorizeAnswerPegs(col){
-    //     switch(col) {
-    //         case "red":
-    //             $("answer-pegs").css("background-color","rgb(255, 0, 0)")
-    //             break;
-    //         case "yellow":
-    //             $("answer-pegs").css("background-color","rgb(255, 255, 0)")
-    //             break;
-    //         case "blue":
-    //             $("answer-pegs").css("background-color","rgb(0, 0, 255)")
-    //             break;
-    //         case "green":
-    //             $("answer-pegs").css("background-color","rgb(0, 128, 0)")
-    //             break;
-    //         case "black":
-    //             $("answer-pegs").css("background-color","rgb(0, 0, 0)")
-    //             break;
-    //         case "white":
-    //             $("answer-pegs").css("background-color","rgb(255, 255, 255)")
-    //             break;
-    //     }
-    // }
-    // function updatedAnswerArray(i, col){
-    //     for (var i = 0; i < 4; i++){}
-    //         answerArray[i] = function makeNumberAColor(col){
-    //             if (0) return (col === 'rgb(255, 0, 0)');
-    //             if (1) return (col === 'rgb(255, 255, 0)');
-    //             if (2) return (col === 'rgb(0, 0, 255)');
-    //             if (3) return (col === 'rgb(0, 128, 0)');
-    //             if (4) return (col === 'rgb(0, 0, 0)');
-    //             if (5) return (col === 'rgb(255, 255, 255)');
-    //         }
-    //     }
-
-    // function makeNumberAColor(col){
-    //     var aPeg = ($(".answer-peg").parent())[0];
-    //     // $(aPeg).css("background","none");
-    //     $(aPeg).css("background-color",col);
-    //     if (0) return (col === 'rgb(255, 0, 0)');
-    //     if (1) return (col === 'rgb(255, 255, 0)');
-    //     if (2) return (col === 'rgb(0, 0, 255)');
-    //     if (3) return (col === 'rgb(0, 128, 0)');
-    //     if (4) return (col === 'rgb(0, 0, 0)');
-    //     if (5) return (col === 'rgb(255, 255, 255)');
-    // };
-
     function updateMasterArray(col, xy) {
         var ray = xy.split('-');
         var x = ray[1];
@@ -150,11 +105,17 @@ $(document).ready(function(){
         masterGuessArray[x][y] = makeColorANumber(col);
     };
 
-    function setAnswerPegColors() {
+    // console.log(answerRay);
+
+    function setAnswerPegColors(num, xy) {
         for(let i = 0; i < 4; i++) {
           $($('.answer-pegs .answer-peg')[i]).css('background', makeNumberAColor(answerRay[i]));
+
         }
     };
+
+    console.log(setAnswerPegColors());
+
 
     function makeColorANumber(col){
         if(col === 'rgb(255, 0, 0)') return 0;
@@ -173,6 +134,8 @@ $(document).ready(function(){
         if (num === 4) return ('rgb(0, 0, 0)');
         if (num === 5) return ('rgb(255, 255, 255)');
     };
+
+    // console.log(makeNumberAColor());
 
     function getGrade(){
         var gradRay = [];
@@ -222,7 +185,7 @@ $(document).ready(function(){
         var rayStr = ray.join();
         if (rayStr === "black-peg,black-peg,black-peg,black-peg"){
             $(".win").fadeIn(200);
-            $(".answer-pegs").fadeIn(200);
+            $(".answer-peg").toggle()
             $("button").click(function(){
                 document.location.reload();
             });
