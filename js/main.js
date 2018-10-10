@@ -48,7 +48,8 @@ $(document).ready(function(){
         }
         $(".submit-btn").hide();
         if (guess >= 10){
-            $(".lose").fadeIn(200);
+            // $(".lose").fadeIn(200);
+            $(".answer-pegs").fadeIn(200);
             $("button").click(function(){
                 document.location.reload();
         })
@@ -94,7 +95,7 @@ $(document).ready(function(){
             ray.push(Math.floor(Math.random() * 6));
         }
         return ray;
-    }
+    };
 
     // function colorizeAnswerPegs(col){
     //     switch(col) {
@@ -147,7 +148,13 @@ $(document).ready(function(){
         var x = ray[1];
         var y = ray[2];
         masterGuessArray[x][y] = makeColorANumber(col);
-      }
+    };
+
+    function setAnswerPegColors() {
+        for(let i = 0; i < 4; i++) {
+          $($('.answer-pegs .answer-peg')[i]).css('background', makeNumberAColor(answerRay[i]));
+        }
+    };
 
     function makeColorANumber(col){
         if(col === 'rgb(255, 0, 0)') return 0;
@@ -156,7 +163,16 @@ $(document).ready(function(){
         if(col === 'rgb(0, 128, 0)') return 3;
         if(col === 'rgb(0, 0, 0)') return 4;
         if(col === 'rgb(255, 255, 255)') return 5;
-    }
+    };
+
+    function makeNumberAColor(num){
+        if (num === 0) return ('rgb(255, 0, 0)');
+        if (num === 1) return ('rgb(255, 255, 0)');
+        if (num === 2) return ('rgb(0, 0, 255)');
+        if (num === 3) return ('rgb(0, 128, 0)');
+        if (num === 4) return ('rgb(0, 0, 0)');
+        if (num === 5) return ('rgb(255, 255, 255)');
+    };
 
     function getGrade(){
         var gradRay = [];
@@ -185,13 +201,13 @@ $(document).ready(function(){
             }
         }
         return gradRay;
-    }
+    };
 
     function getGradeBox(){
         var activeGrade = nextGrade.getElementsByClassName("grade-pegs")[0];
         nextGrade = $(nextGrade).prev()[0];
         return activeGrade;
-    }
+    };
 
     function placePegs(ray, box){
         var pegRay = box.getElementsByClassName("grade-peg");
